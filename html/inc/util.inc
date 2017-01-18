@@ -23,6 +23,7 @@ ini_set('display_errors', true);
 ini_set('display_startup_errors', true);
 
 require_once("../inc/util_basic.inc");
+$master_url = parse_config(get_config(), "<master_url>");
 require_once("../project/project.inc");
 require_once("../inc/countries.inc");
 require_once("../inc/db.inc");
@@ -31,7 +32,6 @@ require_once("../inc/translation.inc");
 require_once("../inc/profile.inc");
 require_once("../inc/bootstrap.inc");
 
-$master_url = parse_config(get_config(), "<master_url>");
 
 // don't allow /... at the end of URL
 
