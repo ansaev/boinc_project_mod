@@ -1,0 +1,6 @@
+
+AuthName "mbp"
+AuthType Basic
+AuthUserFile /bp_src/mbp//html/ops/.htpasswd
+require valid-user
+
