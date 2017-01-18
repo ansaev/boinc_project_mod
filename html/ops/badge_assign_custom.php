@@ -72,14 +72,17 @@ if ($num_levels <> count($badge_images)) {
 // badge_name_prefix should be user or team
 // sub_project is an array with name and short_name as in $sub_projects
 //
-function get_badges(
-    $badge_name_prefix, $badge_level_names, $badge_images, $sub_project
-) {
-    $badges = array();
+function get_badges() {
+    $badges = BoincBadge::enum('1=1');
+    echo '<br><br>badges<br>';
+    echo serialize($badges);
+    echo '<br><br><br>';
+    /*
     $limit = count($badge_level_names);
     for ($i=0; $i < $limit; $i++) {
         $badges[$i] = get_badge($badge_name_prefix."_".$sub_project["short_name"]."_".$i, "$badge_level_names[$i] in ".$sub_project["name"]." credit", $sub_project["short_name"].$badge_images[$i]);
     }
+    */
     return $badges;
 }
 
@@ -139,7 +142,7 @@ function assign_all_badges(
     // get badges for all subprojects including total
     //
     foreach ($subprojects_list as $sp) {
-        $badges[$sp["short_name"]] = get_badges($kind, $badge_level_names, $badge_images, $sp);
+        $badges[$sp["short_name"]] = get_badges();
     }
 
     $n = 0;
